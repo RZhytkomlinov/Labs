@@ -1,6 +1,3 @@
-a = 0
-while a < 5:
-    a += 1;
-    if a == 2:
-        continue
-    print(a)
+for i in range (100,200,3):
+    if i % 2 == 1 and i % 3 ==1:
+        print(i)

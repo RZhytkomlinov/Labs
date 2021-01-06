@@ -1,11 +1,3 @@
-a = int(input("podaj a:"))
-while True:
-    print(a);
-    a -= 1;
-    if a == 0:
-        print("0")
-        break
-
-# while n>0:
-#     print(n)
-#     n -= 1;
+x = int(input("Daj do której potęgi: "))
+for i in range (0, x+1):
+    print("2 do potęgi ",i," = ",2**i)

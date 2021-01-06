@@ -1,5 +1,7 @@
-a = 0
-while a < 20:
-    if ((a%2!=0) and (a%3!=0)):
-        print(a)
-    a += 1;
+x = int(input("Daj x: "))
+while x !=0:
+    x -= 1
+    if x%6==0 and x%9==0:
+        print(x,'jest podzielne przez 6 oraz 9')
+    else:
+        print(x)

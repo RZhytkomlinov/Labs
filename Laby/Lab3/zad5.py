@@ -1,11 +1,5 @@
-ile = 0
-suma = 0
-while True:
-    a = input("liczba:")
-    if a == 0:
-        print("Dałeś 0, jesteś zjebany")
-        break
-    ile +=1;
-    suma = int(suma) + int(a);
-    srednia = suma/ile;
-    print(float(srednia))
+n = int(input("Daj liczbe for silnia: "))
+i = 1
+for a in range (1, n+1):
+    i = i*a
+print("Silnia z liczby ",n," to ",i)
