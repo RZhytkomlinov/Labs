@@ -2,15 +2,15 @@ import tkinter as tk
 
 
 class Main(tk.Tk):
-
     def __init__(self, *args, **kwargs):
+
+        tasks = [Home, Zad1, Zad2, Zad3, Zad4, Zad5, Zad6, Zad7]
+
         tk.Tk.__init__(self, *args, **kwargs)
 
         container = tk.Frame(self)
-        container.pack(side='top', expand=True)
+        container.pack(side='top', fill='both', expand=True)
         container.grid(column=0, row=0)
-
-        tasks = [Home, Zad1, Zad2, Zad3, Zad4, Zad5, Zad6, Zad7]
 
         self.frames = {}
 
@@ -30,26 +30,23 @@ class Main(tk.Tk):
 class Home(tk.Frame, tk.StringVar):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
-        text = tk.StringVar()
-        label = tk.Label(self, text="Wprowadź kwotę brutto:")
-        brutto_input = tk.Entry(self, textvariable=text)
-        show = tk.Button(self, text="Show", command=lambda: self.netto(text))
-        label.pack()
-        brutto_input.pack()
-        show.pack()
+        self.controller = controller
+        self.buttons()
 
-    def netto(self, text):
-        self.text = text
-        netto_output = tk.Label(self, height=2, width=15, text='Suma netto: ' + text.get())
-        netto_output.pack()
-
+    def buttons(self):
+        tasks = [Zad1, Zad2, Zad3, Zad4, Zad5, Zad6, Zad7]
+        i = 1
+        for page in tasks:
+            page_name = page.__name__
+            button = tk.Button(
+                self, text=i, command=lambda page_name=page_name: self.controller.show_frame(page_name)).pack()
+            i+=1
 
 
 class Zad1(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
+        self.controller = controller
         text = tk.StringVar()
         label = tk.Label(self, text="Wprowadź kwotę brutto:")
         brutto_input = tk.Entry(self, textvariable=text)
@@ -72,7 +69,7 @@ class Zad1(tk.Frame):
 class Zad2(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
+        self.controller = controller
         Label = tk.Label(self, text="Wprowadź kwotę brutto:")
         input = tk.Entry(self)
         try:
@@ -84,7 +81,7 @@ class Zad2(tk.Frame):
 class Zad3(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
+        self.controller = controller
         Label = tk.Label(self, text="Wprowadź kwotę brutto:")
         input = tk.Entry(self)
         try:
@@ -96,7 +93,7 @@ class Zad3(tk.Frame):
 class Zad4(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
+        self.controller = controller
         Label = tk.Label(self, text="Wprowadź kwotę brutto:")
         input = tk.Entry(self)
         try:
@@ -108,7 +105,7 @@ class Zad4(tk.Frame):
 class Zad5(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
+        self.controller = controller
         Label = tk.Label(self, text="Wprowadź kwotę brutto:")
         input = tk.Entry(self)
         try:
@@ -120,7 +117,7 @@ class Zad5(tk.Frame):
 class Zad6(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
+        self.controller = controller
         Label = tk.Label(self, text="Wprowadź kwotę brutto:")
         input = tk.Entry(self)
         try:
@@ -132,8 +129,9 @@ class Zad6(tk.Frame):
 class Zad7(tk.Frame):
     def __init__(self, parent, controller, **kw):
         super().__init__(**kw)
-        self.conroller = controller
-        Label = tk.Label(self, text="Wprowadź kwotę brutto:")
+        self.controller = controller
+        Label = tk.Label(self, text="Kurwa kwotę brutto:")
+        Label.pack()
         input = tk.Entry(self)
         try:
             brutto = float(input.get())
