@@ -11,6 +11,7 @@ def quiz():
                 "Czy korszystasz teraz z klawiatury?",
                 "Co chcesz dostać z tego testu?",
                 "Ostatnie pytanie:Czy podobał ci się quiz?"]
+
     choices =  ["a) - 'Tak' b) - 'Nie' c) - 'Nie wiem'",
                 "a) - '1000' b) - '2000' c) - '1024'",
                 "a) - 'Tak' b) - 'Nie' c) - 'Nie, ale c'",
