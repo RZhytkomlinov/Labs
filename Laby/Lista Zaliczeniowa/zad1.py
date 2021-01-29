@@ -14,8 +14,7 @@ def netto(brutto):
     return round(brutto - (emerytalne + rentowe + chorobowe + zdrowotna + zaliczka), 2)
 
 
-if __name__ == "__main__":
-    brutto=int(input("Podaj kwotę brutto: "))
-    netto = netto(brutto)
-    print(f"Kwota netto wynosi: {netto}")
-    print(f"Różnica między brutto, a netto: {brutto-netto}")
+brutto=int(input("Podaj kwotę brutto: "))
+netto = netto(brutto)
+print(f"Kwota netto wynosi: {netto}")
+print(f"Różnica między brutto, a netto: {brutto-netto}")
