@@ -13,8 +13,26 @@ def netto(brutto):
 
     return round(brutto - (emerytalne + rentowe + chorobowe + zdrowotna + zaliczka), 2)
 
+
 print("Kalkulator brutto->netto")
-brutto=int(input("Podaj kwotę brutto: "))
-netto = netto(brutto)
-print(f"Kwota netto wynosi: {netto}")
-print(f"Różnica między brutto a netto: {brutto-netto}")
+print("""
+1 - Kalkulator
+2 - Nie kalkulator, tylko wyjście
+""")
+while True:
+    choice=int(input("Wybierz 1 albo 2: "))
+    try:
+        if choice == 1:
+            brutto = int(input("Podaj kwotę brutto: "))
+            netto = netto(brutto)
+            print(f"Kwota netto wynosi: {netto}")
+            print(f"Różnica między brutto a netto: {brutto - netto}")
+            break
+        elif choice == 2:
+            break
+        else:
+            print("Wpisz 1 albo 2: ")
+    except TypeError:
+        print("Wpisz 1 albo 2: ")
+
+
